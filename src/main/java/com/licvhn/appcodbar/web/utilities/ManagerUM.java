@@ -44,13 +44,13 @@ public class ManagerUM {
                 //50.8 X 25.4 mm
                 parameters.put("ALTO_CODBAR", "65");
                 switch (type_code) {
-                    case "^BCN":
+                    case "^BEN":
                         parameters.put("TAM_MAX_FILA", "32");
-                        zpl = DesignZPL.getZPL_CODE_128__2x1(parameters, getParametersCoordenadas2x1(), count_columns, nameProducts, prices, codeProducts);
+                        zpl = DesignZPL.getZPL_CODE_EAN_13__2x1(parameters, getParametersCoordenadas2x1_EAN_13(), count_columns, nameProducts, prices, codeProducts);
                         break;
                     default:
                         parameters.put("TAM_MAX_FILA", "32");
-                        zpl = DesignZPL.getZPL_CODE_EAN_13__2x1(parameters, getParametersCoordenadas2x1(), count_columns, nameProducts, prices, codeProducts);
+                        zpl = DesignZPL.getZPL_CODE_128__2x1(parameters, getParametersCoordenadas2x1(), count_columns, nameProducts, prices, codeProducts);
                         break;
                 }
                 break;
@@ -79,6 +79,7 @@ public class ManagerUM {
         return zpl;
     }
 
+    /*PARAMETROS 2X1 */
     private static Map<String, String> getParametersCoordenadas2x1() {
         Map<String, String> parameters_coordenadas = new HashMap<>();
         parameters_coordenadas.put("corx_empresa1", "0");
@@ -88,17 +89,41 @@ public class ManagerUM {
         parameters_coordenadas.put("corx_precio1", "0");
         parameters_coordenadas.put("cory_precio1", "75");
 
-        parameters_coordenadas.put("corx_codigo1", "20");
+        parameters_coordenadas.put("corx_codigo1", "10");
         parameters_coordenadas.put("cory_codigo1", "100");
 
-        parameters_coordenadas.put("corx_empresa2", "410");
+        parameters_coordenadas.put("corx_empresa2", "415");
         parameters_coordenadas.put("cory_empresa2", "25");
-        parameters_coordenadas.put("corx_producto2", "430");
+        parameters_coordenadas.put("corx_producto2", "415");
         parameters_coordenadas.put("cory_producto2", "55");
-        parameters_coordenadas.put("corx_precio2", "430");
+        parameters_coordenadas.put("corx_precio2", "405");
         parameters_coordenadas.put("cory_precio2", "75");
 
-        parameters_coordenadas.put("corx_codigo2", "440");
+        parameters_coordenadas.put("corx_codigo2", "430");
+        parameters_coordenadas.put("cory_codigo2", "100");
+        return parameters_coordenadas;
+    }
+    
+    private static Map<String, String> getParametersCoordenadas2x1_EAN_13() {
+        Map<String, String> parameters_coordenadas = new HashMap<>();
+        parameters_coordenadas.put("corx_empresa1", "0");
+        parameters_coordenadas.put("cory_empresa1", "25");
+        parameters_coordenadas.put("corx_producto1", "0");
+        parameters_coordenadas.put("cory_producto1", "55");
+        parameters_coordenadas.put("corx_precio1", "0");
+        parameters_coordenadas.put("cory_precio1", "75");
+
+        parameters_coordenadas.put("corx_codigo1", "60");
+        parameters_coordenadas.put("cory_codigo1", "100");
+
+        parameters_coordenadas.put("corx_empresa2", "415");
+        parameters_coordenadas.put("cory_empresa2", "25");
+        parameters_coordenadas.put("corx_producto2", "415");
+        parameters_coordenadas.put("cory_producto2", "55");
+        parameters_coordenadas.put("corx_precio2", "405");
+        parameters_coordenadas.put("cory_precio2", "75");
+
+        parameters_coordenadas.put("corx_codigo2", "480");
         parameters_coordenadas.put("cory_codigo2", "100");
         return parameters_coordenadas;
     }
@@ -240,7 +265,7 @@ public class ManagerUM {
         parameters_coordenadas.put("cory_codigo3", "80");
         return parameters_coordenadas;
     }
-    
+
     private static Map<String, String> getParametersCoordenadas1_18x0_78_EAN_8() {
         Map<String, String> parameters_coordenadas = new HashMap<>();
         //parameters_coordenadas.put("corx_empresa1", "25");

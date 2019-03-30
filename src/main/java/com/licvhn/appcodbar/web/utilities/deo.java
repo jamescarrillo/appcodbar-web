@@ -31,20 +31,20 @@ public class deo {
         //beans1.setNombre("CAMISA MANGA LARGA");PR0000000003
         beans1.setNombre("NOMBRE DEL PRODUCTO 1");
         beans1.setPrecio("S/ 19.99");
-        beans1.setCodigo("0000001");
+        beans1.setCodigo("123450000015");
         //beans1.setCodigo("PR12572183");
         BeansCodBar beans2 = new BeansCodBar();
         beans2.setNombre("NOMBRE DEL PRODUCTO 2");
         beans2.setPrecio("S/ 129.99");
         //beans2.setCodigo("PR1557231244");
-        beans2.setCodigo("0000002");
+        beans2.setCodigo("123450000024");
         BeansCodBar beans3 = new BeansCodBar();
         beans3.setNombre("NOMBRE DEL PRODUCTO 3");
         beans3.setPrecio("S/ 21.99");
-        beans3.setCodigo("0000003");
+        beans3.setCodigo("11110000003");
         lista.add(beans1);
         lista.add(beans2);
-        lista.add(beans3);
+        //lista.add(beans3);
         /*
         lista.add(beans2);
         
@@ -140,12 +140,12 @@ public class deo {
             PrintService printService = PrintServiceLookup.lookupDefaultPrintService();
             //NUM MAXIMO DE CARACTERES 33 POR FILA EN 2X1
 
-            //String s = ManagerZPLComand.getComandosZPL("CODE_128", "2x1", 2, lista, "RED SOLUCIONES SAC");
+            String s = ManagerZPLComand.getComandosZPL("CODE_128", "2x1", 2, lista, "RED SOLUCIONES SAC");
             //String s = ManagerZPLComand.getComandosZPL("EAN_13", "2x1", 2, lista, "RED SOLUCIONES SAC");
             //String s = ManagerZPLComand.getComandosZPL("CODE_128", "1.18x1.18", 3, lista, "FERRETERIA DON PABLITO");
             //String s = ManagerZPLComand.getComandosZPL("EAN_8", "1.18x1.18", 3, lista, "FERRETERIA DON PABLITO");
             //String s = ManagerZPLComand.getComandosZPL("EAN_13", "1.18x1.18", 3, lista, "FERRETERIA DON PABLITO");
-            String s = ManagerZPLComand.getComandosZPL("CODE_128", "1.18x0.78", 3, lista, "RED SOLUCIONES SAC");
+            //String s = ManagerZPLComand.getComandosZPL("CODE_128", "1.18x0.78", 3, lista, "RED SOLUCIONES SAC");
             //String s = ManagerZPLComand.getComandosZPL("EAN_13", "1.18x0.78", 3, lista, "RED SOLUCIONES SAC");
             //String s = ManagerZPLComand.getComandosZPL("EAN_8", "1.18x0.78", 3, lista, "RED SOLUCIONES SAC");
             System.out.println(s);
