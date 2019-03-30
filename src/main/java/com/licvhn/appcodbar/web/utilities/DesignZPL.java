@@ -264,7 +264,22 @@ public class DesignZPL {
             sZPL.append(",Y,N");
             sZPL.append(" \n");
             sZPL.append("^FO ");
-            sZPL.append(Integer.parseInt(parameters_coordenadas.get("corx_codigo" + (i + 1))));
+            //CODE
+            switch (codigosProducto[i].trim().length()) {
+                case 12:
+                    sZPL.append(Integer.parseInt(parameters_coordenadas.get("corx_codigo" + (i + 1))) + 15);
+                    break;
+                case 11:
+                    sZPL.append(Integer.parseInt(parameters_coordenadas.get("corx_codigo" + (i + 1))) + 20);
+                    break;
+                case 10:
+                    sZPL.append(Integer.parseInt(parameters_coordenadas.get("corx_codigo" + (i + 1))) + 25);
+                    break;
+                default:
+                    sZPL.append(Integer.parseInt(parameters_coordenadas.get("corx_codigo" + (i + 1))) + (15 * (10 - codigosProducto[i].trim().length())));
+                    break;
+            }
+            //sZPL.append(Integer.parseInt(parameters_coordenadas.get("corx_codigo" + (i + 1))));
             sZPL.append(",");
             sZPL.append(Integer.parseInt(parameters_coordenadas.get("cory_codigo" + (i + 1))));
             sZPL.append("^FD");
@@ -606,7 +621,22 @@ public class DesignZPL {
             sZPL.append(",Y,N");
             sZPL.append(" \n");
             sZPL.append("^FO ");
-            sZPL.append(Integer.parseInt(parameters_coordenadas.get("corx_codigo" + (i + 1))));
+            //CODE
+            switch (codigosProducto[i].trim().length()) {
+                case 12:
+                    sZPL.append(Integer.parseInt(parameters_coordenadas.get("corx_codigo" + (i + 1))) + 15);
+                    break;
+                case 11:
+                    sZPL.append(Integer.parseInt(parameters_coordenadas.get("corx_codigo" + (i + 1))) + 20);
+                    break;
+                case 10:
+                    sZPL.append(Integer.parseInt(parameters_coordenadas.get("corx_codigo" + (i + 1))) + 25);
+                    break;
+                default:
+                    sZPL.append(Integer.parseInt(parameters_coordenadas.get("corx_codigo" + (i + 1))) + (15 * (10 - codigosProducto[i].trim().length())));
+                    break;
+            }
+            //sZPL.append(Integer.parseInt(parameters_coordenadas.get("corx_codigo" + (i + 1))));
             sZPL.append(",");
             sZPL.append(Integer.parseInt(parameters_coordenadas.get("cory_codigo" + (i + 1))));
             sZPL.append("^FD");

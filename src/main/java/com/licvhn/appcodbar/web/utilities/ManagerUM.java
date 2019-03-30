@@ -18,7 +18,7 @@ public class ManagerUM {
             String[] nameProducts, String[] prices, String[] codeProducts) {
         Map<String, String> parameters = new HashMap<>();
         parameters.put("NOMBRE_EMPRESA", nombreEmpresa);
-        parameters.put("TYPE_CODE", type_code);        
+        parameters.put("TYPE_CODE", type_code);
         String zpl = "";
         switch (medida) {
             //PARAMETROS PULGADAS | ancho x alto
@@ -26,9 +26,9 @@ public class ManagerUM {
                 //30 x 20 mm
                 parameters.put("ALTO_CODBAR", "50");
                 switch (type_code) {
-                    case "^BCN":
+                    case "^B8N":
                         parameters.put("TAM_MAX_FILA", "18");
-                        zpl = DesignZPL.getZPL_CODE_128__1_8x0_78(parameters, getParametersCoordenadas1_18x0_78(), count_columns, nameProducts, prices, codeProducts);
+                        zpl = DesignZPL.getZPL_EAN_8__1_8x0_78(parameters, getParametersCoordenadas1_18x0_78_EAN_8(), count_columns, nameProducts, prices, codeProducts);
                         break;
                     case "^BEN":
                         parameters.put("TAM_MAX_FILA", "18");
@@ -36,7 +36,7 @@ public class ManagerUM {
                         break;
                     default:
                         parameters.put("TAM_MAX_FILA", "18");
-                        zpl = DesignZPL.getZPL_EAN_8__1_8x0_78(parameters, getParametersCoordenadas1_18x0_78(), count_columns, nameProducts, prices, codeProducts);
+                        zpl = DesignZPL.getZPL_CODE_128__1_8x0_78(parameters, getParametersCoordenadas1_18x0_78(), count_columns, nameProducts, prices, codeProducts);
                         break;
                 }
                 break;
@@ -57,10 +57,10 @@ public class ManagerUM {
             case "1.18x1.18":
                 //30 x 30 mm
                 switch (type_code) {
-                    case "^BCN":
+                    case "^B8N":
                         parameters.put("TAM_MAX_FILA", "18");
                         parameters.put("ALTO_CODBAR", "60");
-                        zpl = DesignZPL.getZPL_CODE_128__1_8x1_8(parameters, getParametersCoordenadas1_18x1_18(), count_columns, nameProducts, prices, codeProducts);
+                        zpl = DesignZPL.getZPL_EAN_8__1_8x1_8(parameters, getParametersCoordenadas1_18x1_18_EAN_8(), count_columns, nameProducts, prices, codeProducts);
                         break;
                     case "^BEN":
                         parameters.put("TAM_MAX_FILA", "18");
@@ -70,7 +70,7 @@ public class ManagerUM {
                     default:
                         parameters.put("TAM_MAX_FILA", "18");
                         parameters.put("ALTO_CODBAR", "60");
-                        zpl = DesignZPL.getZPL_EAN_8__1_8x1_8(parameters, getParametersCoordenadas1_18x1_18(), count_columns, nameProducts, prices, codeProducts);
+                        zpl = DesignZPL.getZPL_CODE_128__1_8x1_8(parameters, getParametersCoordenadas1_18x1_18(), count_columns, nameProducts, prices, codeProducts);
                         break;
                 }
                 break;
@@ -103,104 +103,174 @@ public class ManagerUM {
         return parameters_coordenadas;
     }
 
+    /*PARAMETROS 1.18X1.18 */
     private static Map<String, String> getParametersCoordenadas1_18x1_18() {
         Map<String, String> parameters_coordenadas = new HashMap<>();
-        parameters_coordenadas.put("corx_empresa1", "25");
+        parameters_coordenadas.put("corx_empresa1", "0");
         parameters_coordenadas.put("cory_empresa1", "25");
-        parameters_coordenadas.put("corx_producto1", "25");
+        parameters_coordenadas.put("corx_producto1", "0");
         parameters_coordenadas.put("cory_producto1", "60");
-        parameters_coordenadas.put("corx_precio1", "25");
+        parameters_coordenadas.put("corx_precio1", "0");
         parameters_coordenadas.put("cory_precio1", "80");
 
-        parameters_coordenadas.put("corx_codigo1", "60");
+        parameters_coordenadas.put("corx_codigo1", "0");
         parameters_coordenadas.put("cory_codigo1", "145");
 
-        parameters_coordenadas.put("corx_empresa2", "290");
+        parameters_coordenadas.put("corx_empresa2", "260");
         parameters_coordenadas.put("cory_empresa2", "25");
-        parameters_coordenadas.put("corx_producto2", "290");
+        parameters_coordenadas.put("corx_producto2", "260");
         parameters_coordenadas.put("cory_producto2", "60");
-        parameters_coordenadas.put("corx_precio2", "290");
+        parameters_coordenadas.put("corx_precio2", "260");
         parameters_coordenadas.put("cory_precio2", "80");
 
-        parameters_coordenadas.put("corx_codigo2", "330");
+        parameters_coordenadas.put("corx_codigo2", "270");
         parameters_coordenadas.put("cory_codigo2", "145");
 
-        parameters_coordenadas.put("corx_empresa3", "560");
+        parameters_coordenadas.put("corx_empresa3", "530");
         parameters_coordenadas.put("cory_empresa3", "25");
-        parameters_coordenadas.put("corx_producto3", "560");
+        parameters_coordenadas.put("corx_producto3", "530");
         parameters_coordenadas.put("cory_producto3", "60");
-        parameters_coordenadas.put("corx_precio3", "560");
+        parameters_coordenadas.put("corx_precio3", "530");
         parameters_coordenadas.put("cory_precio3", "80");
 
-        parameters_coordenadas.put("corx_codigo3", "590");
+        parameters_coordenadas.put("corx_codigo3", "535");
+        parameters_coordenadas.put("cory_codigo3", "145");
+        return parameters_coordenadas;
+    }
+
+    private static Map<String, String> getParametersCoordenadas1_18x1_18_EAN_8() {
+        Map<String, String> parameters_coordenadas = new HashMap<>();
+        parameters_coordenadas.put("corx_empresa1", "0");
+        parameters_coordenadas.put("cory_empresa1", "25");
+        parameters_coordenadas.put("corx_producto1", "0");
+        parameters_coordenadas.put("cory_producto1", "60");
+        parameters_coordenadas.put("corx_precio1", "0");
+        parameters_coordenadas.put("cory_precio1", "80");
+
+        parameters_coordenadas.put("corx_codigo1", "30");
+        parameters_coordenadas.put("cory_codigo1", "145");
+
+        parameters_coordenadas.put("corx_empresa2", "260");
+        parameters_coordenadas.put("cory_empresa2", "25");
+        parameters_coordenadas.put("corx_producto2", "260");
+        parameters_coordenadas.put("cory_producto2", "60");
+        parameters_coordenadas.put("corx_precio2", "260");
+        parameters_coordenadas.put("cory_precio2", "80");
+
+        parameters_coordenadas.put("corx_codigo2", "295");
+        parameters_coordenadas.put("cory_codigo2", "145");
+
+        parameters_coordenadas.put("corx_empresa3", "530");
+        parameters_coordenadas.put("cory_empresa3", "25");
+        parameters_coordenadas.put("corx_producto3", "530");
+        parameters_coordenadas.put("cory_producto3", "60");
+        parameters_coordenadas.put("corx_precio3", "530");
+        parameters_coordenadas.put("cory_precio3", "80");
+
+        parameters_coordenadas.put("corx_codigo3", "560");
         parameters_coordenadas.put("cory_codigo3", "145");
         return parameters_coordenadas;
     }
 
     private static Map<String, String> getParametersCoordenadas1_18x1_18_EAN_13() {
         Map<String, String> parameters_coordenadas = new HashMap<>();
-        parameters_coordenadas.put("corx_empresa1", "25");
+        parameters_coordenadas.put("corx_empresa1", "0");
         parameters_coordenadas.put("cory_empresa1", "25");
-        parameters_coordenadas.put("corx_producto1", "25");
+        parameters_coordenadas.put("corx_producto1", "0");
         parameters_coordenadas.put("cory_producto1", "60");
-        parameters_coordenadas.put("corx_precio1", "25");
+        parameters_coordenadas.put("corx_precio1", "0");
         parameters_coordenadas.put("cory_precio1", "80");
 
-        parameters_coordenadas.put("corx_codigo1", "40");
+        parameters_coordenadas.put("corx_codigo1", "10");
         parameters_coordenadas.put("cory_codigo1", "145");
 
-        parameters_coordenadas.put("corx_empresa2", "290");
+        parameters_coordenadas.put("corx_empresa2", "260");
         parameters_coordenadas.put("cory_empresa2", "25");
-        parameters_coordenadas.put("corx_producto2", "290");
+        parameters_coordenadas.put("corx_producto2", "260");
         parameters_coordenadas.put("cory_producto2", "60");
-        parameters_coordenadas.put("corx_precio2", "290");
+        parameters_coordenadas.put("corx_precio2", "260");
         parameters_coordenadas.put("cory_precio2", "80");
 
-        parameters_coordenadas.put("corx_codigo2", "310");
+        parameters_coordenadas.put("corx_codigo2", "280");
         parameters_coordenadas.put("cory_codigo2", "145");
 
-        parameters_coordenadas.put("corx_empresa3", "560");
+        parameters_coordenadas.put("corx_empresa3", "530");
         parameters_coordenadas.put("cory_empresa3", "25");
-        parameters_coordenadas.put("corx_producto3", "560");
+        parameters_coordenadas.put("corx_producto3", "530");
         parameters_coordenadas.put("cory_producto3", "60");
-        parameters_coordenadas.put("corx_precio3", "560");
+        parameters_coordenadas.put("corx_precio3", "530");
         parameters_coordenadas.put("cory_precio3", "80");
 
-        parameters_coordenadas.put("corx_codigo3", "570");
+        parameters_coordenadas.put("corx_codigo3", "545");
         parameters_coordenadas.put("cory_codigo3", "145");
         return parameters_coordenadas;
     }
 
+    /*PARAMETROS 1.18X0.078 */
     private static Map<String, String> getParametersCoordenadas1_18x0_78() {
         Map<String, String> parameters_coordenadas = new HashMap<>();
         //parameters_coordenadas.put("corx_empresa1", "25");
         //parameters_coordenadas.put("cory_empresa1", "25");
-        parameters_coordenadas.put("corx_producto1", "25");
+        parameters_coordenadas.put("corx_producto1", "0");
         parameters_coordenadas.put("cory_producto1", "20");
-        parameters_coordenadas.put("corx_precio1", "25");
+        parameters_coordenadas.put("corx_precio1", "0");
         parameters_coordenadas.put("cory_precio1", "40");
 
-        parameters_coordenadas.put("corx_codigo1", "60");
+        parameters_coordenadas.put("corx_codigo1", "0");
         parameters_coordenadas.put("cory_codigo1", "80");
 
         //parameters_coordenadas.put("corx_empresa2", "290");
         //parameters_coordenadas.put("cory_empresa2", "25");
-        parameters_coordenadas.put("corx_producto2", "290");
+        parameters_coordenadas.put("corx_producto2", "265");
         parameters_coordenadas.put("cory_producto2", "20");
-        parameters_coordenadas.put("corx_precio2", "290");
+        parameters_coordenadas.put("corx_precio2", "265");
         parameters_coordenadas.put("cory_precio2", "40");
 
-        parameters_coordenadas.put("corx_codigo2", "330");
+        parameters_coordenadas.put("corx_codigo2", "260");
         parameters_coordenadas.put("cory_codigo2", "80");
 
         //parameters_coordenadas.put("corx_empresa3", "560");
         //parameters_coordenadas.put("cory_empresa3", "25");
-        parameters_coordenadas.put("corx_producto3", "560");
+        parameters_coordenadas.put("corx_producto3", "525");
         parameters_coordenadas.put("cory_producto3", "20");
-        parameters_coordenadas.put("corx_precio3", "560");
+        parameters_coordenadas.put("corx_precio3", "525");
         parameters_coordenadas.put("cory_precio3", "40");
 
-        parameters_coordenadas.put("corx_codigo3", "590");
+        parameters_coordenadas.put("corx_codigo3", "535");
+        parameters_coordenadas.put("cory_codigo3", "80");
+        return parameters_coordenadas;
+    }
+    
+    private static Map<String, String> getParametersCoordenadas1_18x0_78_EAN_8() {
+        Map<String, String> parameters_coordenadas = new HashMap<>();
+        //parameters_coordenadas.put("corx_empresa1", "25");
+        //parameters_coordenadas.put("cory_empresa1", "25");
+        parameters_coordenadas.put("corx_producto1", "0");
+        parameters_coordenadas.put("cory_producto1", "20");
+        parameters_coordenadas.put("corx_precio1", "0");
+        parameters_coordenadas.put("cory_precio1", "40");
+
+        parameters_coordenadas.put("corx_codigo1", "30");
+        parameters_coordenadas.put("cory_codigo1", "80");
+
+        //parameters_coordenadas.put("corx_empresa2", "290");
+        //parameters_coordenadas.put("cory_empresa2", "25");
+        parameters_coordenadas.put("corx_producto2", "260");
+        parameters_coordenadas.put("cory_producto2", "20");
+        parameters_coordenadas.put("corx_precio2", "260");
+        parameters_coordenadas.put("cory_precio2", "40");
+
+        parameters_coordenadas.put("corx_codigo2", "290");
+        parameters_coordenadas.put("cory_codigo2", "80");
+
+        //parameters_coordenadas.put("corx_empresa3", "560");
+        //parameters_coordenadas.put("cory_empresa3", "25");
+        parameters_coordenadas.put("corx_producto3", "520");
+        parameters_coordenadas.put("cory_producto3", "20");
+        parameters_coordenadas.put("corx_precio3", "520");
+        parameters_coordenadas.put("cory_precio3", "40");
+
+        parameters_coordenadas.put("corx_codigo3", "560");
         parameters_coordenadas.put("cory_codigo3", "80");
         return parameters_coordenadas;
     }
@@ -209,32 +279,32 @@ public class ManagerUM {
         Map<String, String> parameters_coordenadas = new HashMap<>();
         //parameters_coordenadas.put("corx_empresa1", "25");
         //parameters_coordenadas.put("cory_empresa1", "25");
-        parameters_coordenadas.put("corx_producto1", "25");
+        parameters_coordenadas.put("corx_producto1", "0");
         parameters_coordenadas.put("cory_producto1", "20");
-        parameters_coordenadas.put("corx_precio1", "25");
+        parameters_coordenadas.put("corx_precio1", "0");
         parameters_coordenadas.put("cory_precio1", "40");
 
-        parameters_coordenadas.put("corx_codigo1", "40");
+        parameters_coordenadas.put("corx_codigo1", "20");
         parameters_coordenadas.put("cory_codigo1", "80");
 
         //parameters_coordenadas.put("corx_empresa2", "290");
         //parameters_coordenadas.put("cory_empresa2", "25");
-        parameters_coordenadas.put("corx_producto2", "290");
+        parameters_coordenadas.put("corx_producto2", "265");
         parameters_coordenadas.put("cory_producto2", "20");
-        parameters_coordenadas.put("corx_precio2", "290");
+        parameters_coordenadas.put("corx_precio2", "265");
         parameters_coordenadas.put("cory_precio2", "40");
 
-        parameters_coordenadas.put("corx_codigo2", "310");
+        parameters_coordenadas.put("corx_codigo2", "275");
         parameters_coordenadas.put("cory_codigo2", "80");
 
         //parameters_coordenadas.put("corx_empresa3", "560");
         //parameters_coordenadas.put("cory_empresa3", "25");
-        parameters_coordenadas.put("corx_producto3", "560");
+        parameters_coordenadas.put("corx_producto3", "525");
         parameters_coordenadas.put("cory_producto3", "20");
-        parameters_coordenadas.put("corx_precio3", "560");
+        parameters_coordenadas.put("corx_precio3", "525");
         parameters_coordenadas.put("cory_precio3", "40");
 
-        parameters_coordenadas.put("corx_codigo3", "570");
+        parameters_coordenadas.put("corx_codigo3", "550");
         parameters_coordenadas.put("cory_codigo3", "80");
         return parameters_coordenadas;
     }
